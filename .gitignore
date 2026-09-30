@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Data (downloaded from NIH, ~700MB — never commit)
+# NOTE: anchored to repo root so src/data/ (a real package) is NOT ignored.
+/data/
+cell_images/
+*.zip
+
+# Experiment artifacts (regenerated; TensorBoard logs go to Drive)
+artifacts/
+checkpoints/
+*.weights.h5
+*.h5
+tb_logs_export.zip
+
+# TensorBoard logs: kept OUT of git by default (they go to Drive).
+# EXCEPT the group comparison slot for Member 1's real run, which the report
+# references by path. Un-ignore only that one directory:
+!logs/tensorboard/transfer_model_1/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / Secrets
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model weights (large files — use Drive instead)
+models/*.weights.h5
+models/*.h5
+models/*.keras
+
+# Colab / Jupyter local config
+.ipynb_checkpoints/
+*.ipynb.checkpoint
+
+# Local notebook-run artifacts — the repo clone the Colab setup cell creates.
+# These live under member_1/ (Member 1's own folder). The sub-repo clone dir is
+# dropped (it would duplicate the whole repo); the member_1/common/ and
+# member_1/src/ copies are Member 1's own files and ARE pushed.
+member_1/Malaria-CNN-Classification-Project-/
+
+# Bytecode — never commit (also covers the member_1/ copies)
+__pycache__/
+*.pyc
+member_1/common/__pycache__/
+member_1/src/__pycache__/
+member_1/src/*/__pycache__/
+
+# TensorBoard event logs: large binary files; keep out of git EXCEPT the one
+# Member 1 comparison slot that the report references by path. Event files in
+# that slot land under the un-ignored logs/tensorboard/transfer_model_1/ dir.
+*.tfevents.*
